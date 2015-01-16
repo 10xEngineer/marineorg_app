@@ -1,0 +1,42 @@
+<ion-view view-title="Transfer">
+	<ion-content>
+		<ion-list>
+			<form ng-submit="">
+				<div class="list">
+					<div class="list list-inset">
+						<label class="item item-input item-select">
+							<div class="input-label">
+								From
+							</div>
+							<select>
+								<option>HSBC</option>
+								<option selected>BOC</option>
+								<option>BEA</option>
+							</select>
+						</label>
+						<label class="item item-input item-select">
+							<div class="input-label">
+								To
+							</div>
+							<select ng-model="portfolio">
+								<option value="">Select Fund for Deposit</option>
+								<option ng-repeat="portfolio in portfolios" value="{{portfolio.id}}">
+									{{portfolio.name}}
+								</option>
+							</select>
+						</label>
+						<label class="item item-input">
+							<div class="input-label">
+								$
+							</div>
+							<input type="text" placeholder="Amount" ng-model="data.newItem">
+						</label>
+					</div>
+				</div>
+				<button class="button button-block button-positive" type="submit">
+					Deposit
+				</button>
+			</form>
+		</ion-list>
+	</ion-content>
+</ion-view>

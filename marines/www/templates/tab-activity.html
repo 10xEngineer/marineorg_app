@@ -1,0 +1,10 @@
+<ion-view view-title="Activity">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-avatar" ng-repeat="activity in activities" type="item-text-wrap" href="#/tab/activity/{{activity.id}}">
+        <img ng-src="{{activity.logo}}">
+        <h2>{{activity.name}}</h2>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

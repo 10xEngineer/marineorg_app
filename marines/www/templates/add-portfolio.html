@@ -1,0 +1,55 @@
+<!--
+  This template loads for the 'add-portfolio' state (app.js)
+  'portfolio' is a $scope variable created in the PortfolioCtrl controller (controllers.js)
+  The PortfolioCtrl pulls data from the Portfolios service (service.js)
+  The Portfolio service returns an array of portfolio data
+-->
+
+<ion-view view-title="Add New Portfolio Fund">
+	<ion-content class="padding">
+    <div class="list card">
+		<div class="list">
+			<label class="item item-input">
+				  <span class="input-label">Fund Name</span>
+				  <input type="text" ng-model="portfolio.name" ng-required ng-trim>
+			</label>
+			
+			<label class="item item-input">
+				  <span class="input-label">Description</span>
+				  <input type="text" ng-model="portfolio.description" ng-required ng-trim>
+			</label>
+			
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Investment Horizon (Years)
+				</div>
+				<select ng-model="portfolio.horizon">
+					<option>1</option>
+					<option selected>3</option>
+					<option>5</option>
+					<option>10</option>
+					<option>15</option>
+					<option>20</option>
+					<option>30</option>
+				</select>
+			</label>
+
+			<label class="item item-input">
+				<span class="input-label">Stock-Bond Split</span>
+				Stocks
+				<div class="range">
+				  <i class="icon ion-soup-can-outline"></i>
+				  <input type="range" ng-model="portfolio.stock_bond_split" min="0" max="100" value="50" width="60%">
+				  <i class="icon ion-soup-can"></i>
+				</div>
+				Bonds
+		</div>
+		<div class="padding">
+			<button class="button button-block button-positive" ng-click="createFund(portfolio)">
+				Create Fund
+				<i class="icon ion-plus-circled"></i>
+			</button>
+		</div>
+  </ion-content>
+</ion-view>
+

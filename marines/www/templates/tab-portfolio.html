@@ -1,0 +1,26 @@
+<ion-view view-title="Portfolio">
+	<ion-content>
+		<ion-list>
+			<ion-item class="item-avatar item-icon-right" ng-repeat="portfolio in portfolios" type="item-text-wrap" href="#/tab/portfolio/{{portfolio.id}}">
+				<div class="portfolio_summary">
+					<ul>
+						<li class="portfolio_logo"><img ng-src="{{ portfolio.logo && portfolio.logo || '' }}" width="80" height="80" /></li>
+						<li class="portfolio_name">
+							<h2>{{portfolio.name}}</h2>
+							<p class="subdued">{{portfolio.description}}</p>
+						 </li>
+						<li class="portfolio_balance"><b>{{portfolio.balance | currency }}</b></li>
+					</ul>
+				</div>
+				<i class="icon ion-chevron-right icon-accessory"></i>
+			</ion-item>
+
+			<ion-item class="item-avatar item-icon-centre" type="item-text-wrap">
+				<button class="button button-block button-positive" ng-click="create()">
+				    <i class="icon icon ion-plus-circled"></i>
+					Add a new Fund Goal
+				</button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>
