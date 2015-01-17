@@ -10,8 +10,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
 	setTimeout(function() {
-	        navigator.splashscreen.hide();
-	    }, 4000);
+			if( navigator && navigator.splashscreen )
+	        	navigator.splashscreen.hide();
+	    }, 2000);
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -50,10 +51,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 	}
   })
 
-  .state('add-portfolio', {
-      url: '/create',
-      templateUrl: 'templates/add-portfolio.html',
-      controller: 'PortfolioCtrl'
+  .state('add-post', {
+      url: '/add-post',
+      templateUrl: 'templates/add-post.html',
+      controller: 'PostsCtrl'
     })
 
   // setup an abstract state for the tabs directive
@@ -65,46 +66,83 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
-  .state('tab.overview', {
-    url: '/overview',
+  .state('tab.home', {
+    url: '/home',
     views: {
-      'tab-overview': {
-        templateUrl: 'templates/tab-overview.html',
-        controller: 'OverviewCtrl'
+      'tab-home': {
+        templateUrl: 'templates/tab-home.html',
+        controller: 'HomeCtrl'
       }
     }
   })
 
-  .state('tab.portfolio', {
-      url: '/portfolio',
+  .state('tab.posts', {
+      url: '/posts',
       views: {
-        'tab-portfolio': {
-          templateUrl: 'templates/tab-portfolio.html',
-          controller: 'PortfolioCtrl'
+        'tab-posts': {
+          templateUrl: 'templates/tab-posts.html',
+          controller: 'PostsCtrl'
+        }
+      }
+    })
+    .state('tab.post-detail', {
+      url: '/posts/:postId',
+      views: {
+        'tab-posts': {
+          templateUrl: 'templates/post-detail.html',
+          controller: 'PostDetailCtrl'
         }
       }
     })
 
-    .state('tab.portfolio-detail', {
-      url: '/portfolio/:portfolioId',
+  .state('tab.members', {
+      url: '/members',
       views: {
-        'tab-portfolio': {
-          templateUrl: 'templates/portfolio-detail.html',
-          controller: 'PortfolioDetailCtrl'
+        'tab-members': {
+          templateUrl: 'templates/tab-members.html',
+          controller: 'MembersCtrl'
+        }
+      }
+    })
+    .state('tab.member-detail', {
+      url: '/members/:memberId',
+      views: {
+        'tab-members': {
+          templateUrl: 'templates/member-detail.html',
+          controller: 'MemberDetailCtrl'
         }
       }
     })
 
-  .state('tab.transfer', {
-      url: '/transfer',
+  .state('tab.chats', {
+      url: '/chats',
       views: {
-        'tab-transfer': {
-          templateUrl: 'templates/tab-transfer.html',
-          controller: 'TransferCtrl'
+        'tab-chats': {
+          templateUrl: 'templates/tab-chats.html',
+          controller: 'ChatsCtrl'
+        }
+      }
+    })
+    .state('tab.chat-detail', {
+      url: '/chats/:chatId',
+      views: {
+        'tab-chats': {
+          templateUrl: 'templates/chat-detail.html',
+          controller: 'ChatDetailCtrl'
         }
       }
     })
 
+
+  .state('tab.photos', {
+      url: '/photos',
+      views: {
+        'tab-photos': {
+          templateUrl: 'templates/tab-photos.html',
+          controller: 'GalleryCtrl'
+        }
+      }
+    })
 
   .state('tab.activity', {
       url: '/activity',
@@ -112,16 +150,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         'tab-activity': {
           templateUrl: 'templates/tab-activity.html',
           controller: 'ActivityCtrl'
-        }
-      }
-    })
-
-  .state('tab.assetclass', {
-      url: '/assetclass',
-      views: {
-        'tab-assetclass': {
-          templateUrl: 'templates/tab-assetclass.html',
-          controller: 'GalleryCtrl'
         }
       }
     })

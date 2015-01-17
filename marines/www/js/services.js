@@ -1,25 +1,3 @@
-function generateRandomPortfolio(howMany, factor) {
-    var allocations = [],
-        index;
-
-    for (index = 0; index < 10; index += 1) {
-        allocations.push(
-            Math.random() * 100
-        );
-    }
-
-	// resize to 100%
-	var sum = _.reduce(allocations, function(sum, num) {
-	  return sum + num;
-	});
-	normalized_allocations = [];
-	_.each(allocations, function(num) {
-		normalized_allocations.push((num / sum) * factor);
-	})
-
-	return normalized_allocations;
-}
-
 angular.module('starter.services', [])
 
 .service('API', function($http, url, params){
@@ -73,75 +51,45 @@ angular.module('starter.services', [])
 	});
 })
 
-.service('Portfolio', function() {
-  // Might use a resource here that returns a JSON array
-//	API.all('api/portfolios', {}, function(data) {
-//		console.log('Portfolios fetched: '+JSON.stringify(data));
-//	});
-  // Some fake testing data
-  stock_alloc = generateRandomPortfolio(5, 0.9);
-  bond_alloc = generateRandomPortfolio(6, 0.1);
-  stock_alloc1 = generateRandomPortfolio(5, 0.3);
-  bond_alloc1 = generateRandomPortfolio(6, 0.7);
-  stock_alloc2 = generateRandomPortfolio(5, 0.3);
-  bond_alloc2 = generateRandomPortfolio(6, 0.7);
-  var portfolios = [{
+.service('Posts', function() {
+
+  var posts = [{
     id: 0,
-    name: 'Retirement Fund',
-    logo: 'img/growth_retirement.png',
-    description: 'Savings for retirement.',
-    invested_amount: 100000,
-    balance: 100000+Math.random()*100000,
-    stock_bond_split: 0.9,
-    stocks: [{name: 'US Total Stock Market', percent: stock_alloc[0]}, {name: 'US Mid-Cap Value', percent: stock_alloc[1]}, {name: 'US Small-Cap Value', percent: stock_alloc[2]}, {name: 'International Developed', percent: stock_alloc[3]}, {name: 'Emerging Markets', percent: stock_alloc[4]}],
-    bonds: [{name: 'Short Term Treasuries', percent: bond_alloc[0]}, {name: 'Inflation Protected Bonds', percent: bond_alloc[1]}, {name: 'US Municipal Bonds', percent: bond_alloc[2]}, {name: 'US Corporate Bonds', percent: bond_alloc[3]}, {name: 'International Bonds', percent: bond_alloc[4]}, {name: 'Emerging Markets Bonds', percent: bond_alloc[5]}]
+    name: 'Looking for a House Sitter',
+    logo: 'img/marine badge.jpg',
+    description: 'Need someone to house sit and look after our pets for 3 weeks during March, 3rd until March 28th 2015. Please contact me for more details urgently.'
   }, {
     id: 1,
-    name: 'Build Wealth Fund',
-    description: 'Wealth Investment Fund',
-    logo: 'img/growth_buildwealth.png',
-    invested_amount: 100000,
-    balance: 100000+Math.random()*100000,
-    stock_bond_split: 0.3,
-    stocks: [{name: 'US Total Stock Market', percent: stock_alloc1[0]}, {name: 'US Mid-Cap Value', percent: stock_alloc1[1]}, {name: 'US Small-Cap Value', percent: stock_alloc1[2]}, {name: 'International Developed', percent: stock_alloc1[3]}, {name: 'Emerging Markets', percent: stock_alloc1[4]}],
-    bonds: [{name: 'Short Term Treasuries', percent: bond_alloc1[0]}, {name: 'Inflation Protected Bonds', percent: bond_alloc1[1]}, {name: 'US Municipal Bonds', percent: bond_alloc1[2]}, {name: 'US Corporate Bonds', percent: bond_alloc1[3]}, {name: 'International Bonds', percent: bond_alloc1[4]}, {name: 'Emerging Markets Bonds', percent: bond_alloc1[5]}]
+    name: 'Job Opening',
+    description: 'Position available for experienced Security Card. PM me for details',
+    logo: 'img/marine badge.jpg'
   }, {
     id: 2,
-    name: 'Safety Net Fund',
-    description: 'Savings for a Safety Net (Health or Loss of Job) Fund',
-    logo: 'img/growth_safetynet.png',
-    invested_amount: 12000,
-    balance: 12000+Math.random()*12000,
-    stock_bond_split: 0.3,
-    stocks: [{name: 'US Total Stock Market', percent: stock_alloc2[0]}, {name: 'US Mid-Cap Value', percent: stock_alloc2[1]}, {name: 'US Small-Cap Value', percent: stock_alloc2[2]}, {name: 'International Developed', percent: stock_alloc2[3]}, {name: 'Emerging Markets', percent: stock_alloc2[4]}],
-    bonds: [{name: 'Short Term Treasuries', percent: bond_alloc2[0]}, {name: 'Inflation Protected Bonds', percent: bond_alloc2[1]}, {name: 'US Municipal Bonds', percent: bond_alloc2[2]}, {name: 'US Corporate Bonds', percent: bond_alloc2[3]}, {name: 'International Bonds', percent: bond_alloc2[4]}, {name: 'Emerging Markets Bonds', percent: bond_alloc2[5]}]
+    name: 'Bank Holiday Weekend Drinks & Reunion',
+    description: 'Drinks next Friday at the Brass Bell. All Welcome',
+    logo: 'img/marine badge.jpg'
   }];
 
   return {
     all: function() {
-      return portfolios;
+      return posts;
     },
-    add: function(portfolio) {
+    add: function(post) {
 		var proto = {
-	    	logo: 'img/growth_safetynet.png',
-	    	invested_amount: 12000,
-	    	balance: 12000+Math.random()*12000,
-	    	stocks: [{name: 'US Total Stock Market', percent: stock_alloc2[0]}, {name: 'US Mid-Cap Value', percent: stock_alloc2[1]}, {name: 'US Small-Cap Value', percent: stock_alloc2[2]}, {name: 'International Developed', percent: stock_alloc2[3]}, {name: 'Emerging Markets', percent: stock_alloc2[4]}],
-	    	bonds: [{name: 'Short Term Treasuries', percent: bond_alloc2[0]}, {name: 'Inflation Protected Bonds', percent: bond_alloc2[1]}, {name: 'US Municipal Bonds', percent: bond_alloc2[2]}, {name: 'US Corporate Bonds', percent: bond_alloc2[3]}, {name: 'International Bonds', percent: bond_alloc2[4]}, {name: 'Emerging Markets Bonds', percent: bond_alloc2[5]}]
+	    	logo: 'img/marine badge.jpg'
     	};
-		proto.id = portfolios.length+99;
-		proto.name = portfolio.name;
-		proto.description = portfolio.description;
-		proto.stock_bond_split = portfolio.stock_bond_split;
-		portfolios.push( proto );
+		proto.id = posts.length+99;
+		proto.name = post.name;
+		proto.description = post.description;
+		posts.push( proto );
 	},
-    remove: function(portfolio) {
-      portfolios.splice(portfolios.indexOf(portfolio), 1);
+    remove: function(post) {
+      posts.splice(posts.indexOf(post), 1);
     },
-    get: function(portfolioId) {
-      for (var i = 0; i < portfolios.length; i++) {
-        if (portfolios[i].id === parseInt(portfolioId)) {
-          return portfolios[i];
+    get: function(postId) {
+      for (var i = 0; i < posts.length; i++) {
+        if (posts[i].id === parseInt(postId)) {
+          return posts[i];
         }
       }
       return null;
@@ -153,28 +101,118 @@ angular.module('starter.services', [])
 /**
  * A simple example service that returns some data.
  */
-.service('Transfer', function() {
+.service('Members', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var transfer = [{
+  var members = [{
     id: 0,
-    bank: 'BOC',
-    amount: 50000
+    name: 'Steve Messina',
+    face: 'https://m.ak.fbcdn.net/sphotos-d.ak/hphotos-ak-prn2/v/t1.0-9/548511_10150786996461451_825119123_n.jpg?oh=95d2790098b96c7d5f4f58eb64539841&oe=5530F763&__gda__=1429419977_4182714ba3b1c5285ecbd420c7dd487a',
+    rank: 'AB',
+    email: 'steve.g.messina@gmail.com',
+    phone: '+852 6390 8102',
+    twitter: '@steve_messina',
+    location: 'Hong Kong',
+    job: 'CTO'
   }, {
     id: 1,
-    bank: 'HSBC',
-    amount: 1000
+    name: 'Campbell Cooke',
+    face: 'https://scontent-b-sin.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/14827_1412363912344201_683371243_n.jpg?oh=469fdb48268827a3c2f9959dd2f6e17c&oe=55255707',
+    rank: 'CPO',
+    email: 'campbell@campbellcooke.net',
+    phone: '+1 918-960-3400',
+    twitter: '',
+    location: 'Tulsa, Oklahoma',
+    job: 'Lawyer'
+  }, {
+    id: 2,
+    name: 'Roscoe van Muylwyk',
+    face: 'https://m.ak.fbcdn.net/sphotos-a.ak/hphotos-ak-xpa1/v/t1.0-9/10347769_10203573606675042_606197871315383518_n.jpg?oh=594ddfc43aa03879f1d05711291bde17&oe=552E2179&__gda__=1433273363_90f145106a6c8bf9c4f48b8c30720db5',
+    rank: 'LtCdr',
+    email: 'roscoevm@outlook.com',
+    phone: '+1 7176790878',
+    twitter: '',
+    location: 'Location: Pennsylvania, USA (GMT -5)',
+    job: 'Project Manager'
+  }, {
+    id: 3,
+    name: 'Gerald Males',
+    face: 'https://scontent-b-sin.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/1380201_10201060621156124_5836470009484186819_n.jpg?oh=cff0a9ca04583d8e4f662b3c9f5de907&oe=553390D0',
+    rank: 'AB',
+    email: 'malesgerald@gmail.com',
+    phone: '',
+    twitter: '',
+    location: 'Cape Town, South Africa',
+    job: 'Manager'
   }];
 
 
   return {
     all: function() {
-      return transfer;
+      return members;
     },
-    get: function(transferId) {
+    get: function(memberId) {
       // Simple index lookup
-      return transfer[transferId];
+      return members[memberId];
+    }
+  }
+})
+
+/**
+ * A simple example service that returns some data.
+ */
+.service('Chats', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var chats = [{
+    id: 0,
+    name: 'Steve Messina',
+    face: 'https://m.ak.fbcdn.net/sphotos-d.ak/hphotos-ak-prn2/v/t1.0-9/548511_10150786996461451_825119123_n.jpg?oh=95d2790098b96c7d5f4f58eb64539841&oe=5530F763&__gda__=1429419977_4182714ba3b1c5285ecbd420c7dd487a',
+    discussion: []
+  }, {
+    id: 1,
+    name: 'Campbell Cooke',
+    face: 'https://scontent-b-sin.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/14827_1412363912344201_683371243_n.jpg?oh=469fdb48268827a3c2f9959dd2f6e17c&oe=55255707',
+    discussion: []
+  }];
+
+
+  return {
+    all: function() {
+      return chats;
+    },
+    get: function(chatId) {
+      // Simple index lookup
+      return chats[chatId];
+    }
+  }
+})
+
+/**
+ * A simple example service that returns some data.
+ */
+.service('Photos', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var photos = [
+	{ id: 0, image: '../img/marine braai.jpg' },
+	{ id: 1, image: '../img/marine clothing.jpg' },
+	{ id: 2, image: '../img/marine dekking.jpg' },
+	{ id: 3, image: '../img/marine honour roll.jpg' },
+	{ id: 4, image: '../img/marines belt and badges.JPG' }
+ ];
+
+
+  return {
+    all: function() {
+      return photos;
+    },
+    get: function(photoId) {
+      // Simple index lookup
+      return photos[photoId];
     }
   }
 })
@@ -189,11 +227,11 @@ angular.module('starter.services', [])
   var activity = [{
     id: 0,
     date: 'December 30, 2014 11:15:00',
-    portfolio: 2
+    post: 2
   }, {
     id: 1,
     date: 'January 03, 2015 17:30:00',
-	portfolio: 1
+	post: 1
   }];
 
 

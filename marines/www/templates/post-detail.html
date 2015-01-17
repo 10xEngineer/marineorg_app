@@ -1,0 +1,37 @@
+<!--
+  This template loads for the 'tab.post-detail' state (app.js)
+  'post' is a $scope variable created in the PostDetailCtrl controller (controllers.js)
+  The PostDetailCtrl pulls data from the Posts service (service.js)
+  The Post service returns an array of post data
+-->
+
+
+<ion-view view-title="{{post.name}}">
+  <ion-content class="padding">
+    <div class="list card">
+		<div class="item item-body">
+		    <p>
+		      {{post.name}}
+		    </p>
+		  </div>
+		
+		  <div class="item item-body">
+		    <p class="subdued">
+		      {{post.description}}
+		    </p>
+		  </div>
+		
+		<div class="item tabs tabs-secondary tabs-icon-left">
+		  <a class="tab-item" href="#/tab/posts">
+		    <i class="icon ion-pie-graph"></i>
+		    All Posts
+		  </a>
+		  <a class="tab-item" href="#">
+		    <i class="icon ion-trash-a"></i>
+		    Delete
+		  </a>
+		</div>
+	</div>
+  </ion-content>
+</ion-view>
+

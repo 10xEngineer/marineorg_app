@@ -1,0 +1,441 @@
+//Custom Theme test
+// Colors
+// -------------------------------
+$custom: #1C5BAD !default;
+
+
+
+// Buttons
+// -------------------------------
+$button-custom-bg: $custom !default;
+$button-custom-text: #fff !default;
+$button-custom-border: $custom !default;
+$button-custom-active-bg: #fafafa !default;
+$button-custom-active-border: #ccc !default;
+
+
+
+// Bars
+// -------------------------------
+$bar-transparency: !default;
+$bar-custom-bg: rgba($button-custom-bg, $bar-transparency) !default;
+$bar-custom-text: $button-custom-text !default;
+$bar-custom-border: $button-custom-border !default;
+$bar-custom-active-bg: $button-custom-active-bg !default;
+$bar-custom-active-border: $button-custom-active-border !default;
+
+
+
+
+// Tabs
+// -------------------------------
+$tabs-custom-bg: $button-custom-bg !default;
+$tabs-custom-border: $button-custom-border !default;
+$tabs-custom-text: $button-custom-text !default;
+$tabs-striped-off-color: #000;
+$tabs-striped-off-opacity: .4;
+$tabs-striped-border-width: 4px;
+
+
+
+
+// Items
+// -------------------------------
+$item-custom-bg: $button-custom-bg !default;
+$item-custom-border: $button-custom-border !default;
+$item-custom-text: $button-custom-text !default;
+$item-custom-active-bg: $button-custom-active-bg !default;
+$item-custom-active-border: $button-custom-active-border !default;
+
+
+
+
+// Toggle
+// -------------------------------
+$toggle-on-custom-bg: $button-custom-border !default;
+$toggle-on-custom-border: $toggle-on-custom-bg !default;
+$toggle-on-stable-bg: $button-stable-border !default;
+
+
+
+
+// Checkbox
+// -------------------------------
+$checkbox-off-border-custom: $button-custom-border !default;
+$checkbox-on-bg-custom: $button-custom-border !default;
+
+
+
+
+// Range
+// -------------------------------
+$range-custom-track-bg: $button-custom-border !default;
+
+
+
+// Badges
+// -------------------------------
+$badge-custom-bg: $button-custom-bg !default;
+$badge-custom-text: $button-custom-text !default;
+
+//Util
+
+// Allow parent element of tabs to define color, or just the tab itself */
+.tabs-custom > .tabs,
+.tabs.tabs-custom {
+  @include tab-style($tabs-custom-bg, $tabs-custom-border, $tabs-custom-text);
+  @include tab-badge-style($tabs-custom-text, $tabs-custom-bg);
+}
+
+@mixin tabs-striped($style, $color) {
+  &.#{$style} {
+    .tab-item.tab-item-active,
+    .tab-item.active,
+    .tab-item.activated {
+      margin-top: -4px;
+      color: $color;
+      border-style: solid;
+      border-width: $tabs-striped-border-width 0 0 0;
+      border-color: $color;
+    }
+  }
+}
+
+.tabs-striped {
+  .tabs {
+
+    background-color: #fff;
+    background-image: none;
+    border: 0;
+
+  }
+
+  @include tabs-striped('tabs-custom', $custom);
+  .tab-item {
+    color: $tabs-striped-off-color;
+    opacity: $tabs-striped-off-opacity;
+  }
+}
+
+// Navigational tab */
+
+// Active state for tab
+
+.tab-item.tab-item-active,
+.tab-item.active,
+.tab-item.activated {
+  opacity: 1;
+
+  &.tab-item-custom {
+    color: $custom;
+  }
+
+}
+
+.custom,
+a.custom {
+  color: $custom;
+}
+
+.custom-bg {
+  background-color: $custom;
+}
+
+.custom-border {
+  border-color: $button-custom-border;
+}
+
+.tabs .tab-item .badge,
+.badge {
+  &.badge-custom {
+    @include badge-style($badge-custom-bg, $badge-custom-text);
+  }
+}
+
+.bar {
+  &.bar-custom {
+    @include bar-style($bar-custom-bg, $bar-custom-border, $bar-custom-text);
+  }
+}
+
+.bar-custom {
+  .button {
+    @include button-style($bar-custom-bg, $bar-custom-border, $bar-custom-active-bg, $bar-custom-active-border, $bar-custom-text);
+    @include button-clear($bar-custom-text, $bar-title-font-size);
+  }
+}
+
+.button {
+  &.button-custom {
+    @include button-style($button-custom-bg, $button-custom-border, $button-custom-active-bg, $button-custom-active-border, $button-custom-text);
+    @include button-clear($button-custom-border);
+    @include button-outline($button-custom-border);
+  }
+}
+
+//This will be here
+&.button-outline {
+  @include button-outline($button-custom-border);
+  @include transition(opacity .1s);
+  background: none;
+  box-shadow: none;
+}
+
+.button-clear {
+  @include button-clear($button-custom-border);
+  @include transition(opacity .1s);
+  padding: 0 $button-clear-padding;
+  max-height: $button-height;
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+
+  &.active,
+  &.activated {
+    opacity: 0.3;
+  }
+}
+
+.item {
+  &.item-custom {
+    @include item-style($item-custom-bg, $item-custom-border, $item-custom-text);
+  }
+}
+
+.item.active,
+.item.activated,
+.item-complex.active .item-content,
+.item-complex.activated .item-content,
+.item .item-content.active,
+.item .item-content.activated {
+
+  &.item-custom {
+    @include item-active-style($item-custom-active-bg, $item-custom-active-border);
+  }
+}
+
+.item-complex {
+
+  &.item-custom > .item-content {
+    @include item-style($item-custom-bg, $item-custom-border, $item-custom-text);
+
+    &.active,
+    &:active {
+      @include item-active-style($item-custom-active-bg, $item-custom-active-border);
+    }
+  }
+}
+
+.checkbox {
+  &.checkbox-custom {
+    @include checkbox-style($checkbox-off-border-custom, $checkbox-on-bg-custom);
+  }
+}
+
+.toggle {
+  &.toggle-custom {
+    @include toggle-style($toggle-on-custom-border, $toggle-on-custom-bg);
+  }
+}
+
+.range {
+  &.range-custom {
+    input {
+      @include range-style($range-custom-track-bg);
+    }
+  }
+}
+
+
+/*---Variables---*/
+$cardBorderR: 14px;
+$softShadow: 0 10px 26px rgba(120, 137, 150, 0.3);
+$cardFontSize: 0.95em;
+$cardLineHeight: 3.2em;
+
+/*---Colors---*/
+$white: #fff;
+$black: #000;
+
+html{
+  background-color: #edeeee;
+}
+
+.ProfileCardContainer {
+  position: relative;
+  margin-left: 20%;
+  -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
+  -webkit-animation-name: avatar;
+  animation-name: avatar;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-transform-origin: top;
+  transform-origin: top;
+}
+
+.ProfileCardAvatar {
+  background: url('https://raw.github.com/stahlfest/Valf-Profilecard/master/avatar.jpg');
+  height: 13em;
+  width: 13em;
+  border-radius: 105px;
+  border: solid 1px #8c8c8c;
+  box-shadow: $softShadow;
+  margin-left: 3em;
+
+}
+
+@keyframes avatar {
+  from {
+	margin-top: -1em;
+	transform: rotateX(-70deg);
+  }
+
+  38%{
+	transform: rotateX(30deg);
+  }
+
+  50%{
+	transform: rotateX(10deg);
+  }
+
+  70%{
+	transform: rotateX(14deg);
+  }
+
+  to {
+	transform: rotateX(0deg);
+  }
+}
+
+@-moz-keyframes avatar {
+  from {
+	margin-top: -1em;
+	-moz-transform: rotateX(-70deg);
+  }
+
+  38%{
+	margin-top: 0;
+	-moz-transform: rotateX(30deg);
+  }
+
+  50%{
+	-moz-transform: rotateX(10deg);
+  }
+
+  70%{
+	-moz-transform: rotateX(14deg);
+  }
+
+  to {
+	-moz-transform: rotateX(0deg);
+  }
+}
+
+@-webkit-keyframes avatar {
+  from {
+	margin-top: -1em;
+	-webkit-transform: rotateX(-70deg);
+  }
+
+  38%{
+	margin-top: 0;
+	-webkit-transform: rotateX(30deg);
+  }
+
+  50%{
+	-webkit-transform: rotateX(10deg);
+  }
+
+  70%{
+	-webkit-transform: rotateX(14deg);
+  }
+
+  to {
+	 -webkit-transform: rotateX(0deg);
+   }
+}
+
+.ProfileCardTop {
+  margin-top: 1.7em;
+  width: 18.75em;
+  height: 76px;
+}
+
+.ProfileCardName{
+  position: absolute;
+  width: 18.75em;
+  margin-top: 2.76em;
+  text-align: center;
+  color: $white;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 -1px 0 #333;
+  letter-spacing: 0.07em;
+}
+
+.ProfileCardBox {
+  width: 18.75em;
+  height: 20.625em;
+  margin-top:-0.9em;
+  background-color: $white;
+  box-shadow: $softShadow;
+  border-bottom-left-radius: $cardBorderR;
+  border-bottom-right-radius: $cardBorderR;
+}
+
+.ProfileCardTextTitle {
+  float: left;
+  margin: .1em 0 0 -1em;
+  width: 2.5em;
+  list-style: none;
+  font-family: Arial, sans-serif;
+  font-size: $cardFontSize;
+  line-height: $cardLineHeight;
+  text-align: right;
+  color: #686b6b;
+}
+
+.ProfileCardJob {
+  margin-bottom: 2.7em;
+}
+
+.ProfileCardText {
+  margin-left: 3.2em;
+  padding-top: 0.1em;
+  list-style: none;
+  font-family: Arial, sans-serif;
+  font-size: $cardFontSize;
+  line-height: $cardLineHeight;
+  color: #adb1b2;
+
+  span {
+	display: block;
+	line-height: 1.35em;
+	margin: -1em 0 0.8em 0;
+  }
+
+  a {
+	text-decoration: none;
+	color: #adb1b2;
+  }
+
+	}
+
+.ProfileCardBorder {
+  border-bottom: solid 1px #dacfc0;
+  width: 10em;
+}
+
+.ProfileCardTwitter {
+  background: url("https://raw.github.com/stahlfest/Valf-Profilecard/master/twitter.png") no-repeat;
+  background-position: 1em;
+  color: transparent;
+}
+
+.ProfileCardPlace {
+  background: url("https://raw.github.com/stahlfest/Valf-Profilecard/master/place.png") no-repeat;
+  background-position: 1.3em;
+  color: transparent;
+}

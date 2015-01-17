@@ -1,0 +1,27 @@
+<ion-view view-title="New Post">
+	<ion-content class="padding">
+    <div class="list card">
+		<div class="list">
+			<label class="item item-input">
+				  <span class="input-label">Title</span>
+				  <input type="text" ng-model="post.name" ng-required ng-trim>
+			</label>
+			
+			<label class="item item-input">
+				  <span class="input-label">Description</span>
+				  <input type="text" ng-model="post.description" ng-required ng-trim>
+			</label>
+		</div>
+		<div class="padding">
+			<button class="button button-block button-positive" ng-click="uploadPost(post)">
+				Create
+				<i class="icon ion-plus-circled"></i>
+			</button>
+			<button class="button button-block button-positive" ng-click="allPosts()">
+				Cancel
+				<i class="icon ion-close-round"></i>
+			</button>
+		</div>
+  </ion-content>
+</ion-view>
+

@@ -1,247 +1,169 @@
-//Custom Theme test
-// Colors
-// -------------------------------
-$custom: #1C5BAD !default;
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
 
+For example, you might change some of the default colors:
 
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
 
-// Buttons
-// -------------------------------
-$button-custom-bg: $custom !default;
-$button-custom-text: #fff !default;
-$button-custom-border: $custom !default;
-$button-custom-active-bg: #fafafa !default;
-$button-custom-active-border: #ccc !default;
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
 
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
 
-
-// Bars
-// -------------------------------
-$bar-transparency: !default;
-$bar-custom-bg: rgba($button-custom-bg, $bar-transparency) !default;
-$bar-custom-text: $button-custom-text !default;
-$bar-custom-border: $button-custom-border !default;
-$bar-custom-active-bg: $button-custom-active-bg !default;
-$bar-custom-active-border: $button-custom-active-border !default;
-
-
-
-
-// Tabs
-// -------------------------------
-$tabs-custom-bg: $button-custom-bg !default;
-$tabs-custom-border: $button-custom-border !default;
-$tabs-custom-text: $button-custom-text !default;
-$tabs-striped-off-color: #000;
-$tabs-striped-off-opacity: .4;
-$tabs-striped-border-width: 4px;
-
-
-
-
-// Items
-// -------------------------------
-$item-custom-bg: $button-custom-bg !default;
-$item-custom-border: $button-custom-border !default;
-$item-custom-text: $button-custom-text !default;
-$item-custom-active-bg: $button-custom-active-bg !default;
-$item-custom-active-border: $button-custom-active-border !default;
-
-
-
-
-// Toggle
-// -------------------------------
-$toggle-on-custom-bg: $button-custom-border !default;
-$toggle-on-custom-border: $toggle-on-custom-bg !default;
-$toggle-on-stable-bg: $button-stable-border !default;
-
-
-
-
-// Checkbox
-// -------------------------------
-$checkbox-off-border-custom: $button-custom-border !default;
-$checkbox-on-bg-custom: $button-custom-border !default;
-
-
-
-
-// Range
-// -------------------------------
-$range-custom-track-bg: $button-custom-border !default;
-
-
-
-// Badges
-// -------------------------------
-$badge-custom-bg: $button-custom-bg !default;
-$badge-custom-text: $button-custom-text !default;
-
-//Util
-
-// Allow parent element of tabs to define color, or just the tab itself */
-.tabs-custom > .tabs,
-.tabs.tabs-custom {
-  @include tab-style($tabs-custom-bg, $tabs-custom-border, $tabs-custom-text);
-  @include tab-badge-style($tabs-custom-text, $tabs-custom-bg);
+body{
+  font-family: 'Raleway', sans-serif;
+  background:url("http://www.wallpapersin.net/wallpapers/2013/03/Tokyo-Skyscrapers-485x728.jpg");
 }
-
-@mixin tabs-striped($style, $color) {
-  &.#{$style} {
-    .tab-item.tab-item-active,
-    .tab-item.active,
-    .tab-item.activated {
-      margin-top: -4px;
-      color: $color;
-      border-style: solid;
-      border-width: $tabs-striped-border-width 0 0 0;
-      border-color: $color;
+a{
+  color:#00BBBB;
+  &:hover{
+      color:#666;
+  }
+}
+#container{
+  width:350px;
+  height:100%;
+  @include box-shadow(#999 2px 2px 10px);
+  margin:0px auto;
+}
+.image{
+  height:275px;
+  background: center center no-repeat;
+  background-size:cover;
+  width:275px;
+  border-radius:50%;
+  overflow:hidden;
+  margin:auto;
+}
+.info{
+  height:175px;
+  background:#FAFAFA;
+  text-align:center;
+  h1.name{
+    text-transform:uppercase;
+    margin:0px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: #5C5B5B;
+    font-size: 30px;
+    padding: 25px 0px 0px 0px;
+  }
+  h3.position{
+    margin:0px;
+  }
+  p{
+    color:#666;
+    padding:0px 60px;
+  }
+}
+.social{
+  height:40px;
+  background:#DAE0DE;
+  text-align:center;
+  padding-top:20px;
+  i{
+    font-size:20px;
+  }
+  a{
+    margin:0px 10px;
+    color:#666;
+    &:hover{
+      color:#00BBBB;
     }
   }
 }
 
-.tabs-striped {
-  .tabs {
+/* chat */
 
-    background-color: #fff;
-    background-image: none;
-    border: 0;
-
-  }
-
-  @include tabs-striped('tabs-custom', $custom);
-  .tab-item {
-    color: $tabs-striped-off-color;
-    opacity: $tabs-striped-off-opacity;
-  }
+.bubbledLeft {
+	float: left;
+	margin-right: auto;
+	margin-left: 36px;
+	padding: 4px 10px 4px 15px;
+}
+.bubbledLeft, .bubbledRight {
+	position: relative;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	max-width: 80%;
+	clear: both;
 }
 
-// Navigational tab */
-
-// Active state for tab
-
-.tab-item.tab-item-active,
-.tab-item.active,
-.tab-item.activated {
-  opacity: 1;
-
-  &.tab-item-custom {
-    color: $custom;
-  }
-
+.bubbledLeft:before {
+	z-index: -1;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	content: "";
+	border-width: 8px 10px 8px 17px;
+	border-image: url(../img/speech_bubble_left_2.png) 8 10 8 17 stretch stretch;
+	-webkit-border-image: url(../img/speech_bubble_left_2.png) 8 10 8 17 stretch stretch;
+	-moz-border-image: url(../img/speech_bubble_left_2.png) 8 10 8 17 stretch stretch;
+	-o-border-image: url(../img/speech_bubble_left_2.png) 8 10 8 17 stretch stretch;
 }
 
-.custom,
-a.custom {
-  color: $custom;
+.bubbledLeft:after {
+	z-index: -1;
+	position: absolute;
+	left: -36px;
+	width: 32px;
+	bottom: 0px;
+	height: 32px;
+	content: "";
+	background-image: url(../img/left_chatter.png);
+	background-size: 32px 32px;
+	background-position: bottom left;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
 }
 
-.custom-bg {
-  background-color: $custom;
+.bubbledRight {
+	float: right;
+	margin-left: auto;
+	text-align: right;
+	margin-right: 36px;
+	padding: 4px 15px 4px 10px;
 }
 
-.custom-border {
-  border-color: $button-custom-border;
+.bubbledRight:before {
+	z-index: -1;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	content: "";
+	border-width: 8px 17px 8px 10px;
+	border-image: url(../img/speech_bubble_right_2.png) 8 17 8 10 stretch stretch;
+	-webkit-border-image: url(../img/speech_bubble_right_2.png) 8 17 8 10 stretch stretch;
+	-moz-border-image: url(../img/speech_bubble_right_2.png) 8 17 8 10 stretch stretch;
+	-o-border-image: url(../img/speech_bubble_right_2.png) 8 17 8 10 stretch stretch;
 }
 
-.tabs .tab-item .badge,
-.badge {
-  &.badge-custom {
-    @include badge-style($badge-custom-bg, $badge-custom-text);
-  }
-}
-
-.bar {
-  &.bar-custom {
-    @include bar-style($bar-custom-bg, $bar-custom-border, $bar-custom-text);
-  }
-}
-
-.bar-custom {
-  .button {
-    @include button-style($bar-custom-bg, $bar-custom-border, $bar-custom-active-bg, $bar-custom-active-border, $bar-custom-text);
-    @include button-clear($bar-custom-text, $bar-title-font-size);
-  }
-}
-
-.button {
-  &.button-custom {
-    @include button-style($button-custom-bg, $button-custom-border, $button-custom-active-bg, $button-custom-active-border, $button-custom-text);
-    @include button-clear($button-custom-border);
-    @include button-outline($button-custom-border);
-  }
-}
-
-//This will be here
-&.button-outline {
-  @include button-outline($button-custom-border);
-  @include transition(opacity .1s);
-  background: none;
-  box-shadow: none;
-}
-
-.button-clear {
-  @include button-clear($button-custom-border);
-  @include transition(opacity .1s);
-  padding: 0 $button-clear-padding;
-  max-height: $button-height;
-  border-color: transparent;
-  background: none;
-  box-shadow: none;
-
-  &.active,
-  &.activated {
-    opacity: 0.3;
-  }
-}
-
-.item {
-  &.item-custom {
-    @include item-style($item-custom-bg, $item-custom-border, $item-custom-text);
-  }
-}
-
-.item.active,
-.item.activated,
-.item-complex.active .item-content,
-.item-complex.activated .item-content,
-.item .item-content.active,
-.item .item-content.activated {
-
-  &.item-custom {
-    @include item-active-style($item-custom-active-bg, $item-custom-active-border);
-  }
-}
-
-.item-complex {
-
-  &.item-custom > .item-content {
-    @include item-style($item-custom-bg, $item-custom-border, $item-custom-text);
-
-    &.active,
-    &:active {
-      @include item-active-style($item-custom-active-bg, $item-custom-active-border);
-    }
-  }
-}
-
-.checkbox {
-  &.checkbox-custom {
-    @include checkbox-style($checkbox-off-border-custom, $checkbox-on-bg-custom);
-  }
-}
-
-.toggle {
-  &.toggle-custom {
-    @include toggle-style($toggle-on-custom-border, $toggle-on-custom-bg);
-  }
-}
-
-.range {
-  &.range-custom {
-    input {
-      @include range-style($range-custom-track-bg);
-    }
-  }
+.bubbledRight:after {
+	z-index: -1;
+	position: absolute;
+	right: -36px;
+	width: 32px;
+	bottom: 0px;
+	height: 32px;
+	content: "";
+	background-image: url(../img/right_chatter.png);
+	background-size: 32px 32px;
+	background-position: bottom left;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
 }

@@ -62,20 +62,20 @@ li.percentage {
 	text-align: right;
 }
 
-div.portfolio_summary ul li {
+div.post_summary ul li {
 	position: relative;
 	float: left;
 	font-size: 90%;
 }
 
-li.portfolio_logo {
+li.post_logo {
 	width: 30%;
 	margin-left: -70px;
 	margin-right: 30px;
 }
 
-li.portfolio_name {
-	width: 40%;
+li.post_name {
+	width: 80%;
 }
 
 li p {
@@ -83,80 +83,6 @@ li p {
     text-overflow:ellipsis;
 }
 
-li.portfolio_balance {
-	width: 30%;
-	color: #3381d0;
-	text-align: right;
-}
-
-td-cards {
-  display: block;
-}
-
-td-card {
-  position: absolute;
-  left: 50%;
-  margin-top: 80px;
-  margin-bottom: 40px;
-  margin-left: -125px;
-  width: 250px;
-  height: 200px;
-
-  border: 1px solid #999;
-  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 6px;
-}
-/*
-td-card.card-0 {
-  -webkit-transform: translate3d(0, 0px, 0);
-  transform: translate3d(0, 0px, 0);
-  top: 0px;
-  z-index: 10;
-}
-td-card.card-1 {
-  -webkit-transform: translate3d(0, 4px, 0);
-  transform: translate3d(0, 4px, 0);
-  z-index: 9;
-}
-td-card.card-2 {
-  -webkit-transform: translate3d(0, 8px, 0);
-  transform: translate3d(0, 8px, 0);
-  z-index: 8;
-}
-*/
-
-td-card .image {
-  position: absolute;
-  margin-left: -400px;
-}
-
-td-card img {
-  max-width: 100%;
-  border-radius: 6px;
-}
-
-.yes-text {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 30px;
-  color: rgb(111, 250, 111);
-  opacity: 0;
-}
-.no-text {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 30px;
-  color: rgb(255, 115, 115);
-  opacity: 0;
-}
-
-.fade {
-  -webkit-transition: 0.2s opacity linear;
-  transition: 0.2s opacity linear;
-  opacity: 0;
-}
 
 body {
   cursor: url('http://ionicframework.com/img/finger.png'), auto;
@@ -203,12 +129,71 @@ body {
 }
 
 
-@media screen and (max-width:480px)
-{
-		
-	li.portfolio_balance
-	{
-		float: left;
-		width: auto;
-	}
+.bubble {
+	position: relative;
+	top: 115px;
+	height: 120px;
+	width: 250px;
+	background: #fff;
+	border: #bbb solid 0;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	margin: 0 auto;
+}
+
+.pointer-left {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 0;
+	z-index: 1;
+	border-color: #fff transparent;
+	border-style: solid;
+	border-width: 15px 15px 0;
+	left: -31px;
+	top: 12px;
+}
+
+.pointer-right {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 0;
+	z-index: 1;
+	border-color: #fff transparent;
+	border-style: solid;
+	border-width: 15px 15px 0;
+	right: -31px;
+	top: 77px;
+}
+
+/* chat */
+.bubbledRight{
+float: right;
+margin-left: auto;
+text-align: right;
+
+margin-right: 36px;
+padding: 4px 15px 4px 10px; /*position within the border*/	
+}
+
+.bubbledRight:after{
+z-index: -1;
+position: absolute;
+right: -36px;
+width: 32px;
+bottom: 0px;
+height: 32px;
+content:"";
+
+background-image: url(right_chatter.png);
+background-size: 32px 32px;
+background-position: bottom left;
+
+border-radius: 3px;
+-webkit-border-radius: 3px;	
+-moz-border-radius: 3px;	
+-o-border-radius: 3px;	
+-ms-border-radius: 3px;	
 }

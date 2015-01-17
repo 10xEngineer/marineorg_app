@@ -6,41 +6,43 @@
     <title></title>
 
     <!--link href="//static.ucanpay.io/bower_components/ionic/css/ionic.css" rel="stylesheet"-->
-    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-	<link rel="stylesheet" href="../lib/ionic-contrib-tinder-cards/ionic.tdcards.css">
 	<link rel="stylesheet" href="../lib/angular-carousel/dist/angular-carousel.min.css">
 	
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <!-- compiled css output -->
     <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-	<script src="../lib/numeral.min.js"></script>
-	<script src="../lib/chroma.min.js"></script>
-	<script src="../lib/lodash.min.js"></script>
-	<script src="../lib/Chart.min.js"></script>
+	<script src="lib/numeral.min.js"></script>
+	<script src="lib/chroma.min.js"></script>
+	<script src="lib/lodash.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-	<script type="text/javascript" src="../lib/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="../lib/jquery-ui/jquery-ui.min.js"></script>
+	<script src="lib/jquery/dist/jquery.min.js"></script>
+	<script src="lib/jquery-ui/jquery-ui.min.js"></script>
 
     <!-- ionic/angularjs js -->
-    <script src="../lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
 	
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
-    <script src="js/angles.js"></script>
-
-	<script src="../lib/ionic-contrib-tinder-cards/ionic.tdcards.js"></script>
-	<script src="../lib/collide/collide.js"></script>
 	
-	<script src="../lib/carousel-functions.js"></script>
-	<script src="../lib/angular-carousel/dist/angular-carousel.min.js"></script>
-	<script src="../lib/angular-touch/angular-touch.min.js"></script>
+	<script src="lib/carousel-functions.js"></script>
+	<script src="lib/angular-carousel/dist/angular-carousel.min.js"></script>
+	<script src="lib/angular-touch/angular-touch.min.js"></script>
+	
+	<!-- profile hover functionality -->
+	<script>
+		$(window).ready(function() {  
+		  $(".connect-icons a").hover(function(){
+		    $(".connect-box").toggleClass("color-"+ this.className );
+		    $(".text-"+ this.className).toggleClass("show");
+		  });
+		});
+	</script>
   </head>
+
   <body ng-app="starter" class="background" no-scroll>
     <!--
       The nav bar that will be updated as we navigate between views.
