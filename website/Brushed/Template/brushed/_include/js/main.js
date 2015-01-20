@@ -100,15 +100,6 @@ BRUSHED.slider = function(){
 
 }
 
-/*<div class="slide-content">
-	<div="watermark_container">
-		<a class="watermark_inner" href="#charter">
-			<img class="watermark_center" src="_include/img/marine breast badge.png"/>
-		</a>
-		<span class="watermark_inner">SA Marines</span>
-	</div>
-</div>*/
-
 /* ==================================================
    Navigation Fix
 ================================================== */
